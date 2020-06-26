@@ -24,15 +24,15 @@
     <div class="row">
       <div class="col-md-6 m-auto">
         <h1 class="text-center display-4 my-4">Camera</h1>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="submit" value="TAKE A PHOTO" class="btn btn-primary btn-block">
+        <form action="/upload" method="POST" enctype="multipart/form-data"> //формирование POST запроса при нажатии кнопки "TAKE A PHOTO"
+          <input type="submit" value="TAKE A PHOTO" class="btn btn-primary btn-block"> 
         </form>
-        <hr>
+        <hr> 
         <% if(files){ %>
-          <% files.forEach(function(file) { %>
+          <% files.forEach(function(file) { %> 
             <div class="card card-body mb-3">
-                <img src="data:image/jpg;base64, <%= file.filename %>" alt="">
-                    <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+                <img src="data:image/jpg;base64, <%= file.filename %>" alt=""> //оторажение изображения в раскодированном из base64 формате
+                    <form method="POST" action="/files/<%= file._id %>?_method=DELETE"> //форма для удаления изображения
                       <button class="btn btn-danger btn-block mt-4">Delete</button>
                     </form>
             </div>
